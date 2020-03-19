@@ -1,7 +1,7 @@
 # Rest - Spring Boot - CodeIgnitor
 (On going project)
 
-A completed card games web app with:
+A web app with:
   - Front End written in PHP, HTML, CSS using CodeIgnitor frameworks
   - Back End written in Java, MySQL using Spring Boot frameworks.
   
