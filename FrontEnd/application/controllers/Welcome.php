@@ -20,11 +20,9 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$url = 'http://10.0.0.213:8080/demo/all';
- 
+		$url = $this->config->item('api_url') . 'demo/all';
 		//Use file_get_contents to GET the URL in question.
 		$contents = file_get_contents($url);
-		 
 		//If $contents is not a boolean FALSE value.
 		if($contents !== false){
 			$userList = json_decode($contents, true);

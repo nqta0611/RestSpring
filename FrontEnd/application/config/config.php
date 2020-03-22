@@ -1,6 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+
+$config['api_url'] = 'http://10.0.0.213:8080/';
+
+
 /*
 |--------------------------------------------------------------------------
 | Base Site URL

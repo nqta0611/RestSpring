@@ -56,6 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<input type="submit" value="Add user">
 	</form> 
 
+<script type="text/javascript"> var $api_url = "<?php echo $this->config_item('api_url'); ?>"; </script>
 <script type="text/javascript" src="Js/user.js" ></script>
 </body>
 </html>
