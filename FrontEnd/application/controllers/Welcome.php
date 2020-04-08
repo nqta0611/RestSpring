@@ -20,17 +20,14 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$url = $this->config->item('api_url') . 'demo/all';
+		$url = $this->config->item('api_url') . 'demo/all_drink';
 		//Use file_get_contents to GET the URL in question.
 		$contents = file_get_contents($url);
 		//If $contents is not a boolean FALSE value.
 		if($contents !== false){
-			$userList = json_decode($contents, true);
-			$data = array("userList" => $userList);
-			/*foreach ($userList as $key => $value) {
-				echo $value["id"] . " : " . $value["name"] . ", " . $value["email"] . "<br>";
-  			}*/
+			$drinkList = json_decode($contents, true);
+			$data = array("drinkList" => $drinkList);
 		}
-		$this->load->view('user', $data);
+		$this->load->view('drink', $data);
 	}
 }

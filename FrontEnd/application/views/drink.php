@@ -18,45 +18,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
 
-	<h3>User List: </h3> 
+	<h3>Water drinking history </h3> 
 
 	<table>
 		<thead>
 			<tr>
 			  <th>ID</th>
-			  <th>Name</th>
-			  <th>Email</th>
+			  <th>Time</th>
+			  <th>Amount</th>
+			  <th>Unit</th>
 			</tr>
 		</thead>
 		<tbody>
-			<?php foreach ($userList as $key => $value) { ?>
+			<?php foreach ($drinkList as $key => $value) { ?>
 			<tr>
 				<td>
 					<?php echo $value["id"]; ?>
 				</td>
 				<td>
-					<?php echo $value["name"]; ?>
+					<?php echo $value["timestamp"]; ?>
 				</td>
 				<td>
-					<?php echo $value["email"]; ?>
+					<?php echo $value["amount"]; ?>
+				</td>
+				<td>
+					<?php echo $value["unit"]; ?>
 				</td>
 			</tr> 
 			<?php } ?>
 		</tbody>
 		</table>
 
-	
-
-
-	<form id="addUserForm">
-		<label for="name">Full Name:</label>
-		<input type="text" id="name" name="name"><br><br>
-		<label for="email">Email:</label>
-		<input type="text" id="email" name="email"><br><br>
-		<input type="submit" value="Add user">
-	</form> 
-
 <script type="text/javascript"> var $api_url = "<?php echo $this->config_item('api_url'); ?>"; </script>
-<script type="text/javascript" src="Js/user.js" ></script>
 </body>
 </html>
