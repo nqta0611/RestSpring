@@ -53,6 +53,11 @@ public class MainController {
     Drink d = new Drink();
     d.setAmount(amount);
     d.setUnit(unit);
+    int amount_in_ml = amount;
+    if ( (unit.compareTo("oz") == 0) || (unit.compareTo("sp") == 0) ) {
+      amount_in_ml = (int)(amount * 29.5735);
+    }
+    d.setAmountInMl(amount_in_ml);
     drinkRepository.save(d);
     return "Saved";
   }

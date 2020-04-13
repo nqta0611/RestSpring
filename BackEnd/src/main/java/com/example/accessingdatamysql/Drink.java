@@ -18,6 +18,8 @@ public class Drink {
 
   private String unit;
 
+  private Integer amount_in_ml;
+
   @CreationTimestamp
   private Timestamp time_stamp;
 
@@ -43,6 +45,14 @@ public class Drink {
 
   public void setUnit(String unit) {
     this.unit = unit;
+  }
+
+  public Integer getAmountInMl() {
+    return amount_in_ml;
+  }
+
+  public void setAmountInMl(Integer amount_in_ml) {
+    this.amount_in_ml = amount_in_ml;
   }
 
   public Timestamp getTimestamp() {
