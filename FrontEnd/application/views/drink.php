@@ -52,9 +52,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</table>
 
 	<h3>Add Drink</h3>
-	<input placeholder="Amount" type="text" id="amount"><br>
-	<input placeholder="Unit" type="text" id="unit"><br>
-	<button id="btnAddDrink">Add drink</button>
+	<span>
+		<span>
+			<input placeholder="Amount" id="amount" type="number" step="1" min="0.1">
+			<select id="unit">
+			  <option value="ml">Milliliter</option>
+			  <option value="oz">Oz</option>
+			  <option value="sp">Sip</option>
+			</select>
+		</span>
+		<button id="btnAddDrink">Add drink</button> <br>
+		<p id="errorMessage"></p>
+	</span>
 
 	
 	<script type="text/javascript"> var api_url = "<?php echo $this->config->item('api_url');?>"; </script>
