@@ -18,6 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
 
+
 	<h3>Water drinking history </h3> 
 
 	<table>
@@ -47,8 +48,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</tr> 
 			<?php } ?>
 		</tbody>
-		</table>
+	</table>
 
-<script type="text/javascript"> var $api_url = "<?php echo $this->config_item('api_url'); ?>"; </script>
+	<h3>Add Drink</h3>
+	<input placeholder="Amount" type="text" id="amount"><br>
+	<input placeholder="Unit" type="text" id="unit"><br>
+	<button id="btnAddDrink">Add drink</button>
+
+	
+	<script type="text/javascript"> var api_url = "<?php echo $this->config->item('api_url');?>"; </script>
+	<script type="text/javascript" src="js/drink.js" ></script>
+
 </body>
 </html>

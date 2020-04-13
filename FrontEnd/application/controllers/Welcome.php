@@ -28,6 +28,7 @@ class Welcome extends CI_Controller {
 			$drinkList = json_decode($contents, true);
 			$data = array("drinkList" => $drinkList);
 		}
+		$this->load->helper('url');
 		$this->load->view('drink', $data);
 	}
 }
