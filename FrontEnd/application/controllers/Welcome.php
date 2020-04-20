@@ -29,6 +29,8 @@ class Welcome extends CI_Controller {
 			$data = array("drinkList" => $drinkList);
 		}
 		$this->load->helper('url');
+		$this->load->view('header');
 		$this->load->view('drink', $data);
+		$this->load->view('footer');
 	}
 }
