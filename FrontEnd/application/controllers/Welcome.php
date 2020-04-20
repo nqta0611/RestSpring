@@ -20,6 +20,13 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+		$this->load->helper('url');
+		$this->load->view('header');
+		$this->load->view('footer');
+	}
+
+	public function drink()
+	{
 		$url = $this->config->item('api_url') . 'demo/all_drink';
 		//Use file_get_contents to GET the URL in question.
 		$contents = file_get_contents($url);
@@ -31,6 +38,28 @@ class Welcome extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->view('header');
 		$this->load->view('drink', $data);
+		$this->load->view('footer');
+	}
+
+
+	public function fridge()
+	{
+		$this->load->helper('url');
+		$this->load->view('header');
+		$this->load->view('footer');
+	}
+
+	public function music()
+	{
+		$this->load->helper('url');
+		$this->load->view('header');
+		$this->load->view('footer');
+	}
+
+	public function general()
+	{
+		$this->load->helper('url');
+		$this->load->view('header');
 		$this->load->view('footer');
 	}
 }
