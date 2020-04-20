@@ -40,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 
 		<div class="col-lg-7">		
-			<h4>My Quarantine Life Acitvities</h4>
+			<h4>My Quarantine Life Activities</h4>
 		</div>
 
 		<div class="col-lg-3">		
