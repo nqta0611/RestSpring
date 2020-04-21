@@ -91,7 +91,7 @@
 							</div>
 							<div class="col">
 								<p>Drinking enough water every day is good for overall health. As plain drinking water has zero calories, it can also help with managing body weight and reducing caloric intake when substituted for drinks with calories, like regular soda.  Drinking water can prevent dehydration, a condition that can cause unclear thinking, result in mood change, cause your body to overheat, constipation, and kidney stones.</p>
-								<a href="https://www.cdc.gov/nutrition/data-statistics/plain-water-the-healthier-choice.html">CDC resource</a>
+								<a href="https://www.cdc.gov/nutrition/data-statistics/plain-water-the-healthier-choice.html" target="_blank">CDC resource</a>
 							</div>
 						</div>
 					</div>
