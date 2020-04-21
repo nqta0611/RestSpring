@@ -16,4 +16,10 @@
 		height: 100px;
 		margin-top: 15px;
 	}
+	#btnAddDrink{
+		height: calc(1.5em + .75rem + 2px);
+	}
+	.space-right{
+		margin: 0 2.5rem 0 0; 
+	}
 </style>

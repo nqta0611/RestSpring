@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<title>My Quarantine Life</title>
 
 	<link rel="icon" href="<?=base_url()?>/images/favicon.ico" type="image/gif">
-	
+
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -20,20 +20,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 </head>
 <body>
-	<div id="header-pan" class="container-fluid row bg-info text-white" >
+	<div id="header-pan" class="container-fluid row bg-info text-white" style="background-image: url(<?=base_url()?>/images/home-pano.jpg);">
 
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6">		
-					<h4>My Quarantine Life Activities</h4>
+					<h1><span class="badge badge-warning">My Quarantine Life Activities</span></h1>
 				</div>
 
 				<div class="col-lg d-flex justify-content-end">		
 					<div class="dropdown">
-						<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+						<button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
 						 	Activities
 						</button>
 						<div class="dropdown-menu">
+						 	<a class="dropdown-item" href="<?php echo base_url()?>">Home</a>
 						 	<a class="dropdown-item" href="<?php echo base_url('drink')?>">Water Drinking</a>
 						 	<a class="dropdown-item" href="<?php echo base_url('fridge')?>">Open Fridge</a>
 						 	<a class="dropdown-item" href="<?php echo base_url('music')?>">Music Player</a>

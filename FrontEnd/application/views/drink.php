@@ -1,18 +1,37 @@
 <div class="container">
-		<ul class="nav nav-tabs bg-light row shadow p-3 mb-4 rounded" id="myTab" role="tablist">
-		  <li class="nav-item col-lg-4">
-		    <a class="nav-link active" id="today-content-tab" data-toggle="tab" href="#today-content" role="tab" aria-controls="today-content"
-		      aria-selected="true"><h6>Today</h6></a>
-		  </li>
-		  <li class="nav-item col-lg-4">
-		    <a class="nav-link" id="this-week-content-tab" data-toggle="tab" href="#this-week-content" role="tab" aria-controls="this-week-content"
-		      aria-selected="false"><h6>This Week</h6></a>
-		  </li>
-		  <li class="nav-item col-lg-4">
-		    <a class="nav-link" id="all-time-content-tab" data-toggle="tab" href="#all-time-content" role="tab" aria-controls="all-time-content"
-		      aria-selected="false"><h6>All Time</h6></a>
-		  </li>
-		</ul>
+	<div class="row bg-light text-dark shadow p-3 mb-2 rounded">
+		<h3>Water drinking</h3>
+	</div>
+	<div class="row shadow p-3 mb-4 rounded" style="background-image: url(<?=base_url()?>/images/water-surface.jpg);  background-repeat: no-repeat; background-size: 100%">
+		<div class="col-lg-4">
+			<ul class="nav nav-tabs" id="myTab" role="tablist">
+			  <li class="nav-item">
+			    <a class="nav-link active" id="today-content-tab" data-toggle="tab" href="#today-content" role="tab" aria-controls="today-content"
+			      aria-selected="true"><h6>Today</h6></a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" id="this-week-content-tab" data-toggle="tab" href="#this-week-content" role="tab" aria-controls="this-week-content"
+			      aria-selected="false"><h6>This Week</h6></a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" id="all-time-content-tab" data-toggle="tab" href="#all-time-content" role="tab" aria-controls="all-time-content"
+			      aria-selected="false"><h6>All Time</h6></a>
+			  </li>
+			</ul>
+		</div>
+		<div class="col-lg">
+			<p id="errorMessage" class="alert-danger"></p>
+		</div>
+		<div class="col-lg-4 input-group">
+			<input id="amountAddDrink" class="form-control" type="number" placeholder="Amount" step="1" min="0">
+	    	<select class="custom-select input-group-append" id="unitAddDrink">
+			  <option value="ml">ml</option>
+			  <option value="oz">Oz</option>
+			  <option value="sp">Sip</option>
+			</select>
+			<button id="btnAddDrink" class="btn btn-info input-group-append" type="button">Add drink</button>	
+		</div>
+	</div>
 
 	<div class="tab-content" id="myTabContent">
 	  	<div class="tab-pane fade show active" id="today-content" role="tabpanel" aria-labelledby="today-content-tab">
@@ -30,6 +49,7 @@
 						<tbody>
 						<?php 
 							$today_counter = 1;
+							$today_consumed = 0;
 							$today = date("m-d-y",time());
 							foreach ($drinkList as $key => $value) { 
 							 	$drink_date = date("m-d-y", strtotime($value["timestamp"]));
@@ -46,24 +66,34 @@
 									<?php echo date("g:i A", strtotime($value["timestamp"])); ?>
 								</td>
 								<td>
-									<?php echo $value["amountInMl"]; ?>
+									<?php 
+									echo $value["amountInMl"]; 
+									$today_consumed += $value["amountInMl"];
+									?>
 								</td>
 							</tr> 
 							<?php }
+							$today_percentage = $today_consumed/20;
 						}?>
 						</tbody>
 					</table>
 				</div>
-				<div class="col-lg">
-					<div class="input-group shadow p-3 mb-5 rounded">
-						<input id="amount" class="form-control" type="number" placeholder="Amount" step="1" min="0">
-						<p id="errorMessage"></p>
-				    	<select class="custom-select input-group-append" id="unit">
-						  <option value="ml">ml</option>
-						  <option value="oz">Oz</option>
-						  <option value="sp">Sip</option>
-						</select>
-						<button id="btnAddDrink" class="btn btn-info input-group-append" type="button">Add drink</button>
+				<div class="space-right"></div>
+				<div class="col-lg card">
+					<div class="card-body">
+						<h4>Daily drinking progress <span class="badge badge-warning"><?php echo $today_percentage; ?>%</span></h4>
+						<div class="progress">
+						  	<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="2000" style="width: <?php echo $today_percentage; ?>%"><?php echo $today_consumed;?>ml</div>
+						</div>
+						<div class="py-5 row">
+							<div class="col-4">
+								<img class="img-thumbnail" src="<?=base_url()?>/images/water-bottle.jpg">
+							</div>
+							<div class="col">
+								<p>Drinking enough water every day is good for overall health. As plain drinking water has zero calories, it can also help with managing body weight and reducing caloric intake when substituted for drinks with calories, like regular soda.  Drinking water can prevent dehydration, a condition that can cause unclear thinking, result in mood change, cause your body to overheat, constipation, and kidney stones.</p>
+								<a href="https://www.cdc.gov/nutrition/data-statistics/plain-water-the-healthier-choice.html">CDC resource</a>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -107,16 +137,10 @@
 						</tbody>
 					</table>
 				</div>
-				<div class="col-lg">
-					<div class="input-group shadow p-3 mb-5 rounded">
-						<input id="amount" class="form-control" type="number" placeholder="Amount" step="1" min="0">
-						<p id="errorMessage"></p>
-				    	<select class="custom-select input-group-append" id="unit">
-						  <option value="ml">ml</option>
-						  <option value="oz">Oz</option>
-						  <option value="sp">Sip</option>
-						</select>
-						<button id="btnAddDrink" class="btn btn-info input-group-append" type="button">Add drink</button>
+				<div class="space-right"></div>
+				<div class="col-lg card">
+					<div class="card-body">
+						Weekly info
 					</div>
 				</div>
 			</div>
@@ -155,16 +179,9 @@
 						</tbody>
 					</table>
 				</div>
-				<div class="col-lg">
-					<div class="input-group shadow p-3 mb-5 rounded">
-						<input id="amount" class="form-control" type="number" placeholder="Amount" step="1" min="0">
-						<p id="errorMessage"></p>
-				    	<select class="custom-select input-group-append" id="unit">
-						  <option value="ml">ml</option>
-						  <option value="oz">Oz</option>
-						  <option value="sp">Sip</option>
-						</select>
-						<button id="btnAddDrink" class="btn btn-info input-group-append" type="button">Add drink</button>
+				<div class="col-lg card">
+					<div class="card-body">
+						All Time info
 					</div>
 				</div>
 			</div>
