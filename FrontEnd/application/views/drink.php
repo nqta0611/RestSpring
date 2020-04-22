@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="margin-bottom: 110px;">
 	<div class="row bg-light text-dark shadow p-3 mb-2 rounded">
 		<h3>Water drinking</h3>
 	</div>
@@ -179,6 +179,7 @@
 						</tbody>
 					</table>
 				</div>
+				<div class="space-right"></div>
 				<div class="col-lg card">
 					<div class="card-body">
 						All Time info
