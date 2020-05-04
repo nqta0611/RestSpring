@@ -56,4 +56,5 @@ $route['translate_uri_dashes'] = FALSE;
 $route['drink'] = 'welcome/drink';
 $route['fridge'] = 'welcome/fridge';
 $route['music'] = 'welcome/music';
+$route['coin'] = 'welcome/coin_alert';
 $route['general'] = 'welcome/general';

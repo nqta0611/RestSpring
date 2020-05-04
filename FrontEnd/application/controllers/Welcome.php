@@ -56,6 +56,14 @@ class Welcome extends CI_Controller {
 		$this->load->view('footer');
 	}
 
+	public function coin_alert()
+	{
+		$this->load->helper('url');
+		$this->load->view('header');
+		$this->load->view('coin_alert');
+		$this->load->view('footer');
+	}
+
 	public function general()
 	{
 		$this->load->helper('url');

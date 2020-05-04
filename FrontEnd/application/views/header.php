@@ -37,6 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						 	<a class="dropdown-item" href="<?php echo base_url()?>">Home</a>
 						 	<a class="dropdown-item" href="<?php echo base_url('drink')?>">Water Drinking</a>
 						 	<a class="dropdown-item" href="<?php echo base_url('fridge')?>">Open Fridge</a>
+						 	<a class="dropdown-item" href="<?php echo base_url('coin')?>">Coin Alert</a>
 						 	<a class="dropdown-item" href="<?php echo base_url('music')?>">Music Player</a>
 						 	<a class="dropdown-item" href="<?php echo base_url('general')?>">General</a>
 						</div>
