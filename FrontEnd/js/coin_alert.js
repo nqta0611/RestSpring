@@ -12,10 +12,10 @@ console.log('Coin Alert Page Ready.....');
 	function updateBtc() {
 		console.log("Update BTC data");
 
-		$.get("https://api.nomics.com/v1/currencies/ticker?key=494c3eeb58521c4579e41989c7cddc83&ids=BTC").done(function( data ) {
+		$.get(nomics_url).done(function( data ) {
          console.log("requesting new BTC data");
 
-			$( "#btc-cur-price" ).html("BTC: " + data[0]["price"]);
+			$( "#btc-cur-price" ).html("BTC: " + Math.round(data[0]["price"] * 100) / 100 );
 			$( "#btc-cur-price-time").html(((new Date(data[0]["price_timestamp"])) + " ").split("GMT")[0]);    
          $( "#btc-update-button" ).attr("disabled", false);
       });
@@ -24,4 +24,26 @@ console.log('Coin Alert Page Ready.....');
 	$( "#btc-update-button" ).click(function( event ) {
 		clearBtcData();
 		updateBtc();
+      event.preventDefault();
+	});
+
+
+	function sendSackMsg() {
+		
+	}
+
+	$( "#btnCoinAlert" ).click(function( event ) {
+		console.log("click send slack msg");
+
+		$.get(nomics_url).done(function( data ) {
+			$( "#btc-cur-price" ).html("BTC: " + Math.round(data[0]["price"] * 100) / 100 );
+			$( "#btc-cur-price-time").html(((new Date(data[0]["price_timestamp"])) + " ").split("GMT")[0]);    
+
+         console.log("sending msg");
+			var slack_data = JSON.stringify({ "text" : $( "#btc-cur-price" ).html() });
+			$.post(slack_url, slack_data).done(function( data ) {
+				console.log(data);
+	      });
+      });
+      event.preventDefault();
 	});
