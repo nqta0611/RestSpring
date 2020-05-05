@@ -12,7 +12,8 @@ console.log('Coin Alert Page Ready.....');
 	function updateBtc() {
 		console.log("Update BTC data");
 
-		$.get(nomics_url).done(function( data ) {
+		var url = nomics_url + "ticker?key=" + nomics_key + "&ids=BTC";
+		$.get(url).done(function( data ) {
          console.log("requesting new BTC data");
 
 			$( "#btc-cur-price" ).html("BTC: " + Math.round(data[0]["price"] * 100) / 100 );
@@ -35,13 +36,14 @@ console.log('Coin Alert Page Ready.....');
 	$( "#btnCoinAlert" ).click(function( event ) {
 		console.log("click send slack msg");
 
-		$.get(nomics_url).done(function( data ) {
+		var url = nomics_url + "ticker?key=" + nomics_key + "&ids=BTC";
+		$.get(url).done(function( data ) {
 			$( "#btc-cur-price" ).html("BTC: " + Math.round(data[0]["price"] * 100) / 100 );
 			$( "#btc-cur-price-time").html(((new Date(data[0]["price_timestamp"])) + " ").split("GMT")[0]);    
 
          console.log("sending msg");
 			var slack_data = JSON.stringify({ "text" : $( "#btc-cur-price" ).html() });
-			$.post(slack_url, slack_data).done(function( data ) {
+			$.post(slack_url + slack_key, slack_data).done(function( data ) {
 				console.log(data);
 	      });
       });

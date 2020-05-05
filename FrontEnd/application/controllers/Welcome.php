@@ -18,6 +18,22 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+
+	function __construct() {
+      parent::__construct();
+
+      $this->load->helper('url');
+      $url = base_url() . "storage/credentials.json";
+      
+      $contents = file_get_contents($url, true); 
+		$metadata = json_decode($contents, true);
+     
+		foreach ($metadata as $key => $value) {
+			$this->config->set_item($key, $value);
+		}
+   }
+
+
 	public function index()
 	{
 		$this->load->helper('url');
@@ -28,9 +44,8 @@ class Welcome extends CI_Controller {
 	public function drink()
 	{
 		$url = $this->config->item('api_url') . 'demo/all_drink';
-		//Use file_get_contents to GET the URL in question.
+
 		$contents = file_get_contents($url);
-		//If $contents is not a boolean FALSE value.
 		if($contents !== false){
 			$drinkList = json_decode($contents, true);
 			$data = array("drinkList" => $drinkList);

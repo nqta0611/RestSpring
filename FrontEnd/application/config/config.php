@@ -1,12 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-
-$config['api_url'] = 'http://10.0.0.213:8080/';
-$config['nomics_url'] = 'https://api.nomics.com/v1/currencies/ticker?key=494c3eeb58521c4579e41989c7cddc83&ids=BTC';
-$config['slack_url'] = 'https://hooks.slack.com/services/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';
-
-
 /*
 |--------------------------------------------------------------------------
 | Base Site URL

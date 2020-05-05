@@ -51,7 +51,10 @@
 	   <div id="btnCoinAlert" class="btn btn-info">Send Slack Message</div>
 	</div>
 
+	<!-- Data for JS -->
 	<script type="text/javascript"> var nomics_url = "<?php echo $this->config->item('nomics_url');?>"; </script>
+	<script type="text/javascript"> var nomics_key = "<?php echo $this->config->item('nomics_key');?>"; </script>
 	<script type="text/javascript"> var slack_url = "<?php echo $this->config->item('slack_url');?>"; </script>
+	<script type="text/javascript"> var slack_key = "<?php echo $this->config->item('slack_key');?>"; </script>
 	<script type="text/javascript" src="js/coin_alert.js" ></script>
 </div>
