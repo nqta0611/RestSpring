@@ -1,4 +1,4 @@
-<div id="footer-pan" class="container-fluid row bg-info text-white fixed-bottom" >
+<div id="footer-pan" class="container-fluid row bg-dark text-white fixed-bottom" >
 	<div class="col-lg-3">
 	</div>
 
