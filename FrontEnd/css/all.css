@@ -22,6 +22,9 @@
 	.space-right{
 		margin: 0 2.5rem 0 0; 
 	}
+	.space-sm{
+		margin: 0.3rem; 
+	}
 
 	#btnCoinAlert{
 		background-color: #2196F3;

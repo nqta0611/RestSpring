@@ -21,30 +21,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	
 </head>
-<body>
-	<div id="header-pan" class="container-fluid row bg-dark text-white">
+<body class="bg-dark text-light">
+	<div id="header-pan">
+		<div class="container d-flex align-items-center justify-content-between">
+			<div class="p-2">		
+				<h3>My Quarantine Life Activities</h3>
+			</div>
 
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">		
-					<h1>My Quarantine Life Activities</h1>
-				</div>
-
-				<div class="col-lg d-flex justify-content-end">		
-					<div class="dropdown">
-						<button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
-						 	Activities
-						</button>
-						<div class="dropdown-menu">
-						 	<a class="dropdown-item" href="<?php echo base_url()?>">Home</a>
-						 	<a class="dropdown-item" href="<?php echo base_url('drink')?>">Water Drinking</a>
-						 	<a class="dropdown-item" href="<?php echo base_url('fridge')?>">Open Fridge</a>
-						 	<a class="dropdown-item" href="<?php echo base_url('coin')?>">Coin Alert</a>
-						 	<a class="dropdown-item" href="<?php echo base_url('music')?>">Music Player</a>
-						 	<a class="dropdown-item" href="<?php echo base_url('general')?>">General</a>
-						</div>
-					</div> 
-				</div>
+			<div class="p-2">		
+				<div class="dropdown">
+					<button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
+					 	Activities
+					</button>
+					<div class="dropdown-menu">
+					 	<a class="dropdown-item" href="<?php echo base_url()?>">Home</a>
+					 	<a class="dropdown-item" href="<?php echo base_url('drink')?>">Water Drinking</a>
+					 	<a class="dropdown-item" href="<?php echo base_url('fridge')?>">Open Fridge</a>
+					 	<a class="dropdown-item" href="<?php echo base_url('coin')?>">Coin Alert</a>
+					 	<a class="dropdown-item" href="<?php echo base_url('music')?>">Music Player</a>
+					 	<a class="dropdown-item" href="<?php echo base_url('general')?>">General</a>
+					</div>
+				</div> 
 			</div>
 		</div>
 	</div>
