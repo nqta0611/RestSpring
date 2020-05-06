@@ -67,7 +67,7 @@
 					</td>
 					<td>
 						<div id="btc-max-price">
-							<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+							<input type="text" class="form-control" placeholder="Enter whole $ price">
 						</div>
 					</td>
 					<td>
@@ -86,7 +86,7 @@
 					</td>
 					<td>
 						<div id="btc-max-price">
-							<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+							<input type="text" class="form-control" placeholder="Enter whole $ price">
 						</div>
 					</td>
 					<td>
