@@ -1,16 +1,24 @@
 <div class="container" style="margin-bottom: 110px;">
 	
-	<div class="d-flex bg-light text-dark shadow p-3 mb-3 rounded">
-		<div class="p-2 flex-shrink-0" style="width:75px; 
-				background-image: url(https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/btc.svg); 
-				background-repeat: no-repeat;">	
+	<div class="d-flex align-items-center bg-light text-dark shadow p-3 mb-3 rounded">
+		<div class="p-2 flex-shrink-0">
+			<img class="img-fluid" style="width:70px;" src="https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/btc.svg">
 		</div>
 		<div class="p-2 w-100">
 			<h4>Coin Watch</h4>
+	  		<div id="btc-last-time" class="font-italic text-black-50"></div>
 		</div>
 		<div class="p-2 flex-shrink-0">
-	  		<div id="btc-cur-price" class="text-success text-monospace font-weight-bold  text-success"></div>
-	  		<div id="btc-cur-price-time" class="font-italic text-black-50"></div>
+	  	</div>
+	  	<div class="p-2 flex-shrink-0">
+	  		<div class="font-italic text-dark">Nomics</div>
+	  		<div class="font-italic text-success">Bitstamp</div>
+	  		<div class="font-italic text-info">Coinbase</div>
+	  	</div>
+		<div class="p-2 flex-shrink-0 text-monospace text-warning font-weight-bold">
+			<div id="btc-price-nomics"></div>
+			<div id="btc-price-bitstamp"></div>
+			<div id="btc-price-coinbase"></div>
 	  	</div>
 	</div>
 
@@ -132,5 +140,7 @@
 	<script type="text/javascript"> var nomics_key = "<?php echo $this->config->item('nomics_key');?>"; </script>
 	<script type="text/javascript"> var slack_url = "<?php echo $this->config->item('slack_url');?>"; </script>
 	<script type="text/javascript"> var slack_key = "<?php echo $this->config->item('slack_key');?>"; </script>
+	<script type="text/javascript"> var coinbase_url = "<?php echo $this->config->item('coinbase_url');?>"; </script>
+	<script type="text/javascript"> var bitstamp_url = "<?php echo $this->config->item('bitstamp_url');?>"; </script>
 	<script type="text/javascript" src="js/coin_alert.js" ></script>
 </div>
