@@ -1,11 +1,11 @@
 # Rest - Spring Boot - CodeIgnitor
 (On going project)
-As I get bored of the Coronavirus pandemic quanrantine, I will make a webpage to keep track of all my daily activites inlcuding: how much I drink, eat, number of time opening the fridge, etc ....
+As I get bored of the Coronavirus pandemic quanrantine, I will make a webpage to Monitoring BITCOIN price and keep track of all my daily activites
 
 ## Feature:
 1. Monitoring my daily water drinking. (done)
 2. Count how many time I have opened the fridge today. (not yet implemented)
-3. Monitoring Bitcoin price including: (ongoing)
+3. Monitoring BITCOIN price including: (ongoing)
 -  Displaying current price, and history in hour, day, week, etc 
 - Set alarm to send Slack message when Bitcoin price reach some certain price 
 4. Music player, which streaming: (not yet implemented)
