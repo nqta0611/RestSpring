@@ -1,6 +1,21 @@
 console.log('Coin Alert Page Ready.....');
 	updateBtc();
 	setInterval(updateBtc, 5000);
+	setInterval(updateCountdown, 1000);
+
+	function updateCountdown() {
+		var d = new Date();
+		var halving = new Date("May 11, 2020 23:51:28 UTC");
+		var seconds = parseInt((halving - d)/1000);
+
+		var days = parseInt( seconds / 86400 ); 
+		seconds = seconds % 86400;
+		var hours = parseInt( seconds / 3600 ); 
+		seconds = seconds % 3600;
+		var minutes = parseInt( seconds / 60 ); 
+		seconds = seconds % 60;
+		$("#btc-havlving-time").html(days + "D "+ hours + ":" + minutes + ":" + seconds)
+	}
 
 	function updateBtc() {
 		updateBtcNomics();
@@ -12,7 +27,7 @@ console.log('Coin Alert Page Ready.....');
 	}
 
 	function updateBtcBitstamp() {
-		var url = bitstamp_url + "ticker_hour";
+		var url = bitstamp_url + "ticker";
 		$.get(url).done(function( data ) {
          var price = data.last;
 			$( "#btc-price-bitstamp" ).html( Math.round(price * 100) / 100 ); 
@@ -40,9 +55,9 @@ console.log('Coin Alert Page Ready.....');
 		$( "#btnCoinAlert" ).html("<i class='fa fa-spinner'></i> Sending");
 
 		console.log("sending msg");
-      var msg = "BTC\nBitstamp: " + $( "#btc-price-bitstamp" ).html() 
-      			+ "\nNomics: " + $( "#btc-price-nomics" ).html() 
-      			+ "\nCoinbase: " + $( "#btc-price-coinbase" ).html();
+      var msg = "BTC\nBitstamp:\t" + $( "#btc-price-bitstamp" ).html() 
+      			+ "\nCoinbase:\t" + $( "#btc-price-coinbase" ).html()
+      			+ "\nNomics  :\t" + $( "#btc-price-nomics" ).html();
 		var slack_data = JSON.stringify({ "text" : msg });
 		$.post(slack_url + slack_key, slack_data).done(function( data ) {
 			console.log(data);

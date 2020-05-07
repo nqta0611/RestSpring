@@ -1,5 +1,17 @@
 <div class="container" style="margin-bottom: 110px;">
 	
+	<div class="d-flex align-items-center justify-content-between mb-3 rounded"  style="background-color: #000000;">
+		<div class="p-2 d-flex align-items-center ml-1">
+			<img class="p-2 img-fluid" style="width:90px;" src="<?=base_url()?>/images/btc-halving.jpg">
+			<div>
+				<h4>Halving Countdown</h4>
+				<div class="font-italic">Est: May 11, 2020 23:51:28 UTC</div>
+			</div>
+		</div>
+		<div class="p-2 mr-3">
+			<h4><span id="btc-havlving-time">4D 11:13:51</span></h4>
+		</div>
+	</div>
 	<div class="d-flex align-items-center bg-light text-dark shadow p-3 mb-3 rounded">
 		<div class="p-2 flex-shrink-0">
 			<img class="img-fluid" style="width:70px;" src="https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/btc.svg">
@@ -8,17 +20,15 @@
 			<h4>Coin Watch</h4>
 	  		<div id="btc-last-time" class="font-italic text-black-50"></div>
 		</div>
-		<div class="p-2 flex-shrink-0">
-	  	</div>
 	  	<div class="p-2 flex-shrink-0">
-	  		<div class="font-italic text-dark">Nomics</div>
 	  		<div class="font-italic text-success">Bitstamp</div>
 	  		<div class="font-italic text-info">Coinbase</div>
+	  		<div class="font-italic text-dark">Nomics</div>
 	  	</div>
 		<div class="p-2 flex-shrink-0 text-monospace text-warning font-weight-bold">
-			<div id="btc-price-nomics"></div>
 			<div id="btc-price-bitstamp"></div>
 			<div id="btc-price-coinbase"></div>
+			<div id="btc-price-nomics"></div>
 	  	</div>
 	</div>
 
