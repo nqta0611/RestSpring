@@ -5,11 +5,11 @@
 			<img class="p-2 img-fluid" style="width:90px;" src="<?=base_url()?>/images/btc-halving.jpg">
 			<div>
 				<h4>Halving Countdown</h4>
-				<div class="font-italic">Est: May 11, 2020 23:51:28 UTC</div>
+				<div class="font-italic" style="font-size: .8rem;">Est: May 11, 2020 23:51:28 UTC</div>
 			</div>
 		</div>
 		<div class="p-2 mr-3">
-			<h4><span id="btc-havlving-time">4D 11:13:51</span></h4>
+			<h4><span id="btc-havlving-time"></span></h4>
 		</div>
 	</div>
 	<div class="d-flex align-items-center bg-light text-dark shadow p-3 mb-3 rounded">
@@ -18,7 +18,7 @@
 		</div>
 		<div class="p-2 w-100">
 			<h4>Coin Watch</h4>
-	  		<div id="btc-last-time" class="font-italic text-black-50"></div>
+	  		<div id="btc-last-time" class="font-italic text-black-50" style="font-size: .8rem;"></div>
 		</div>
 	  	<div class="p-2 flex-shrink-0">
 	  		<div class="font-italic text-success">Bitstamp</div>
@@ -32,8 +32,24 @@
 	  	</div>
 	</div>
 
-	<div class="bg-light text-dark shadow p-3 mb-3 rounded">
-		<label><h4>Slack Alert Center</h4></label>
+	<div class="bg-light text-dark shadow mb-2 p-2 rounded">
+		<div class="alert-info p-3 rounded">
+			<div class="d-flex align-items-center">
+				<div class="p-2"><h4>Slack Alert Center</h4></div>
+				<button id="btc-slack-info-btn" class="p-2 btn text-info"><h4><i class="fa fa-question-circle"></i></h4></button>
+			</div>
+			<div id="btc-slack-info-block" class="space-sm" style="display: none">
+				<p style="font-size: .8rem;">
+					By default, Slack message will be sent to <a target="blank" href="http://coinwatchworkspace.slack.com/">CoinWatch channel</a>. If you want to send message to your slack channel, enter your webhook here:
+				</p>
+				<div>
+					<input id="btc-alert-slack-hook-input" type="text" class="form-control" placeholder="Slack webhook links">
+				</div>
+				<p style="font-size: .8rem;">
+					<a target="blank" href="https://api.slack.com/tutorials/slack-apps-hello-world">Tutorial on Slack Webhook</a>
+				</p>
+			</div>
+		</div>
 		<table class="table table-striped">
 			<thead>
 				<tr>

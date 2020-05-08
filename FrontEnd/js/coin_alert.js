@@ -1,4 +1,5 @@
 console.log('Coin Alert Page Ready.....');
+	var custome_slack_webhook = "";
 	updateBtc();
 	setInterval(updateBtc, 5000);
 	setInterval(updateCountdown, 1000);
@@ -68,6 +69,8 @@ console.log('Coin Alert Page Ready.....');
       });
 	}
 
+// Slack Alert Center
+// Send once
 	$( "#btnCoinAlert" ).click(function( event ) {
 		$( "#btnCoinAlert" ).attr("disabled", true);
 		$( "#btnCoinAlert" ).html("<i class='fa fa-spinner'></i> Sending");
@@ -77,15 +80,14 @@ console.log('Coin Alert Page Ready.....');
       			+ "\nCoinbase:\t" + $( "#btc-price-coinbase" ).html()
       			+ "\nNomics  :\t" + $( "#btc-price-nomics" ).html();
 		var slack_data = JSON.stringify({ "text" : msg });
-		$.post(slack_url + slack_key, slack_data).done(function( data ) {
+		$.post((custome_slack_webhook !== "" ? custome_slack_webhook !== "" : slack_url) + slack_key, slack_data).done(function( data ) {
 			console.log(data);
 			$( "#btnCoinAlert" ).attr("disabled", false);
-			$( "#btnCoinAlert" ).html("<i class='fa fa-paper-plane'></i> Sending");
+			$( "#btnCoinAlert" ).html("<i class='fa fa-paper-plane'></i> Send");
       });
       event.preventDefault();
 	});
 
-// Slack Alert Center
 // Every... Alert
 	var interval_id = -1;
 	var period = 30;  // default interval is set to 30mins
@@ -135,7 +137,7 @@ console.log('Coin Alert Page Ready.....');
       			//+ "\nCoinbase:\t" + $( "#btc-price-coinbase" ).html()
       			//+ "\nNomics  :\t" + $( "#btc-price-nomics" ).html();
       	var slack_data = JSON.stringify({ "text" : msg });
-			$.post(slack_url + slack_key, slack_data).done(function( data ) {
+			$.post((custome_slack_webhook !== "" ? custome_slack_webhook !== "" : slack_url) + slack_key, slack_data).done(function( data ) {
 				last_alert = new_alert_range;
 				alert_interval = parseInt($("#btc-alert-interval-val").val());
 				//console.log("price : " + $( "#btc-price-bitstamp" ).html());
@@ -148,7 +150,7 @@ console.log('Coin Alert Page Ready.....');
       			//+ "\nCoinbase:\t" + $( "#btc-price-coinbase" ).html()
       			//+ "\nNomics  :\t" + $( "#btc-price-nomics" ).html();
       	var slack_data = JSON.stringify({ "text" : msg });
-			$.post(slack_url + slack_key, slack_data).done(function( data ) {
+			$.post((custome_slack_webhook !== "" ? custome_slack_webhook !== "" : slack_url) + slack_key, slack_data).done(function( data ) {
 				last_alert = new_alert_range;
 				alert_interval = parseInt($("#btc-alert-interval-val").val());
 				//console.log("price : " + $( "#btc-price-bitstamp" ).html());
@@ -162,11 +164,19 @@ console.log('Coin Alert Page Ready.....');
 
 	function sendSlackMsg(msg) {
 		var slack_data = JSON.stringify({ "text" : msg });
-		$.post(slack_url + slack_key, slack_data).done(function( data ) {
+		$.post((custome_slack_webhook !== "" ? custome_slack_webhook !== "" : slack_url) + slack_key, slack_data).done(function( data ) {
 			console.log(data);
       });
 	}
 
+	$( "#btc-slack-info-btn" ).click(function( event ) { 
+		console.log('click info');
+		$("#btc-slack-info-block").toggle();
+	});
+
+	$( "#btc-alert-slack-hook-input").change(function() {
+		custome_slack_webhook = $( "#btc-alert-slack-hook-input").val();
+	});
 	
 
 	
