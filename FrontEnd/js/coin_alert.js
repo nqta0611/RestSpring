@@ -115,7 +115,7 @@ console.log('Coin Alert Page Ready.....');
 		var new_alert_range = parseInt($("#btc-price-bitstamp").html() / alert_interval) * alert_interval;
 		if (new_alert_range < last_alert) {
 			//console.log("drop: " + $("#btc-price-bitstamp").html() + " / " + last_alert);
-			var msg = "ALERT: \nDROP v v v\n" +
+			var msg = "Alert: DROP\n" +
 						"Bitstamp:\t" + $( "#btc-price-bitstamp" ).html() ;
       			//+ "\nCoinbase:\t" + $( "#btc-price-coinbase" ).html()
       			//+ "\nNomics  :\t" + $( "#btc-price-nomics" ).html();
@@ -128,7 +128,7 @@ console.log('Coin Alert Page Ready.....');
 			});
 		} else if (new_alert_range > last_alert) {
 			//console.log("rise: " + $("#btc-price-bitstamp").html() + " / " + last_alert);
-			var msg = "ALERT: \nRISE ^ ^ ^\n" +
+			var msg = "Alert: RISE ^ ^ ^\n" +
 						"Bitstamp:\t" + $( "#btc-price-bitstamp" ).html() ;
       			//+ "\nCoinbase:\t" + $( "#btc-price-coinbase" ).html()
       			//+ "\nNomics  :\t" + $( "#btc-price-nomics" ).html();
