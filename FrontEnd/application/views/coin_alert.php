@@ -63,7 +63,7 @@
 					</td>
 					<td>
 						<div class="form-group">
-						   <select id="btc-alert-period-val" class="form-control" id="exampleFormControlSelect1">
+						   <select id="btc-alert-period-val" class="form-control">
 						      <option value="10">10 mins</option>
 						      <option value="30" selected="selected">30 mins</option>
 						      <option value="45">45 mins</option>
@@ -89,13 +89,13 @@
 					</td>
 					<td>
 						<div>
-							<input id="btc-max-price" type="number" class="form-control" placeholder="Enter whole $ price">
+							<input id="btc-alert-above-val" type="number" class="form-control" placeholder="$">
 						</div>
 					</td>
 					<td>
 						<div class="d-flex justify-content-center">
 							<label class="switch p-2">
-						  		<input type="checkbox">
+						  		<input id="btc-alert-above" type="checkbox">
 						  		<span class="slider round"></span>
 							</label>
 						</div>
@@ -107,14 +107,14 @@
 						<div>Send alert when price is below</div>
 					</td>
 					<td>
-						<div id="btc-max-price">
-							<input id="btc-max-price" type="number" class="form-control" placeholder="Enter whole $ price">
+						<div>
+							<input id="btc-alert-below-val" type="number" class="form-control" placeholder="$">
 						</div>
 					</td>
 					<td>
 						<div class="d-flex justify-content-center">
 							<label class="switch p-2">
-						  		<input type="checkbox">
+						  		<input id="btc-alert-below" type="checkbox">
 						  		<span class="slider round"></span>
 							</label>
 						</div>
@@ -128,7 +128,7 @@
 					<td>
 						<div>
 							<div class="form-group">
-							   <select id="btc-alert-interval-val" class="form-control" id="exampleFormControlSelect1">
+							   <select id="btc-alert-interval-val" class="form-control">
 							      <option value="10">$10</option>
 							      <option value="50">$50</option>
 							      <option value="100" selected="selected">$100</option>
