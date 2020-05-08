@@ -59,15 +59,24 @@
 
 				<tr>
 					<td>
-						<div id="btc-price">Send price every 30mins</div>
+						<div>Send price every</div>
 					</td>
 					<td>
-						<div id="btc-max-price"></div>
+						<div class="form-group">
+						   <select id="btc-alert-period-val" class="form-control" id="exampleFormControlSelect1">
+						      <option value="10">10 mins</option>
+						      <option value="30" selected="selected">30 mins</option>
+						      <option value="45">45 mins</option>
+						      <option value="60">1 hour</option>
+						      <option value="90">1 h 30 mins</option>
+						      <option value="120">2 hour</option>
+						   </select>
+					  	</div>
 					</td>
 					<td>
 						<div class="d-flex justify-content-center">
 							<label class="switch p-2">
-						  		<input type="checkbox">
+						  		<input id="btc-alert-period" type="checkbox">
 						  		<span class="slider round"></span>
 							</label>
 						</div>
@@ -79,8 +88,8 @@
 						<div id="btc-price">Send alert when price is above</div>
 					</td>
 					<td>
-						<div id="btc-max-price">
-							<input type="text" class="form-control" placeholder="Enter whole $ price">
+						<div>
+							<input id="btc-max-price" type="number" class="form-control" placeholder="Enter whole $ price">
 						</div>
 					</td>
 					<td>
@@ -95,11 +104,11 @@
 
 				<tr>
 					<td>
-						<div id="btc-price">Send alert when price is below</div>
+						<div>Send alert when price is below</div>
 					</td>
 					<td>
 						<div id="btc-max-price">
-							<input type="text" class="form-control" placeholder="Enter whole $ price">
+							<input id="btc-max-price" type="number" class="form-control" placeholder="Enter whole $ price">
 						</div>
 					</td>
 					<td>
@@ -117,7 +126,7 @@
 						<div id="btc-price">Send alert when price hit the interval of</div>
 					</td>
 					<td>
-						<div id="btc-max-price">
+						<div>
 							<div class="form-group">
 							   <select id="btc-alert-interval-val" class="form-control" id="exampleFormControlSelect1">
 							      <option value="10">$10</option>
