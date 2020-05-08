@@ -24,6 +24,10 @@ console.log('Coin Alert Page Ready.....');
 
       var d = new Date() + " ";
 		$( "#btc-last-time").html(d.split("GMT")[0]);  
+
+		if ($("#btc-alert-interval").prop("checked")){
+			checkIntervalAlert();
+		}
 	}
 
 	function updateBtcBitstamp() {
@@ -67,24 +71,48 @@ console.log('Coin Alert Page Ready.....');
       event.preventDefault();
 	});
 
+// Slack Alert Center
 
-// try
-	let i = 0;
-	function increment() {
-	  i++;
-	  console.log(i);
+	var alert_interval = 1;
+	var last_alert = 1;
+
+	function setLastAlert() {
+		alert_interval = parseInt($("#btc-alert-interval-val").val());
+		last_alert = (parseInt($("#btc-price-bitstamp").html() / alert_interval) * alert_interval);
 	}
 
-	let timeIntervalID = 0;
-	$( "#btnCoinAlertInterval" ).click(function( event ) {
-		timeIntervalID = setInterval(increment, 1000);
-      event.preventDefault();
+	function checkIntervalAlert() {
+		if ($("#btc-price-bitstamp").html() < last_alert) {
+			//console.log("drop: " + $("#btc-price-bitstamp").html() + " / " + last_alert);
+			var msg = "ALERT: BTC DROP v v v\n" +
+						"Bitstamp:\t" + $( "#btc-price-bitstamp" ).html() 
+      			+ "\nCoinbase:\t" + $( "#btc-price-coinbase" ).html()
+      			+ "\nNomics  :\t" + $( "#btc-price-nomics" ).html();
+      	var slack_data = JSON.stringify({ "text" : msg });
+			$.post(slack_url + slack_key, slack_data).done(function( data ) {
+				setLastAlert();
+			});
+		} else if ($("#btc-price-bitstamp").html() > last_alert + alert_interval) {
+			//console.log("rise: " + $("#btc-price-bitstamp").html() + " / " + last_alert);
+			var msg = "ALERT: BTC RISE ^ ^ ^\n" +
+						"Bitstamp:\t" + $( "#btc-price-bitstamp" ).html() 
+      			+ "\nCoinbase:\t" + $( "#btc-price-coinbase" ).html()
+      			+ "\nNomics  :\t" + $( "#btc-price-nomics" ).html();
+      	var slack_data = JSON.stringify({ "text" : msg });
+			$.post(slack_url + slack_key, slack_data).done(function( data ) {
+				setLastAlert();
+				last_alert = last_alert + alert_interval;
+			});
+		} 
+		/* else {
+			console.log("no alert: " + $("#btc-price-bitstamp").html() + "/" + last_alert );
+		} */
+	}
+
+	$( "#btc-alert-interval-val" ).change(function() {
+		alert_interval = parseInt($("#btc-alert-interval-val").val());
 	});
 
-	$( "#btnCoinCancelAlertInterval" ).click(function( event ) {
-		clearInterval(timeIntervalID);
-      event.preventDefault();
-	});
 	
 
 	

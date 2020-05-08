@@ -33,11 +33,6 @@
 	</div>
 
 	<div class="bg-light text-dark shadow p-3 mb-3 rounded">
-		<h4>Details</h4>
-		<div id="btc-details">...</div>
-	</div>
-
-	<div class="bg-light text-dark shadow p-3 mb-3 rounded">
 		<label><h4>Slack Alert Center</h4></label>
 		<table class="table table-striped">
 			<thead>
@@ -124,10 +119,14 @@
 					<td>
 						<div id="btc-max-price">
 							<div class="form-group">
-							   <select class="form-control" id="exampleFormControlSelect1">
-							      <option>$50</option>
-							      <option>$100</option>
-							      <option>$1000</option>
+							   <select id="btc-alert-interval-val" class="form-control" id="exampleFormControlSelect1">
+							      <option value="10">$10</option>
+							      <option value="50">$50</option>
+							      <option value="100" selected="selected">$100</option>
+							      <option value="200">$100</option>
+							      <option value="300">$300</option>
+							      <option value="500">$100</option>
+							      <option value="1000">$1000</option>
 							   </select>
 						  	</div>
 						</div>
@@ -135,7 +134,7 @@
 					<td>
 						<div class="d-flex justify-content-center">
 							<label class="switch p-2">
-						  		<input type="checkbox">
+						  		<input id="btc-alert-interval" type="checkbox">
 						  		<span class="slider round"></span>
 							</label>
 						</div>
