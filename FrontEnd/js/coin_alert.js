@@ -31,15 +31,21 @@ console.log('Coin Alert Page Ready.....');
 		if ($("#btc-alert-above").prop("checked") &&
 		 	($("#btc-alert-above-val").val() !== "") &&
 		 	(parseInt($( "#btc-price-bitstamp" ).html()) > $("#btc-alert-above-val").val())) {
-			sendSlackMsg("ABOVE\nPrice risen above: " + $("#btc-alert-above-val").val() 
+			sendSlackMsg("RISE above: " + $("#btc-alert-above-val").val() 
 				+ "\nBitstamp: " + $( "#btc-price-bitstamp" ).html());
+			//$("#btc-alert-above").prop( "checked", false );
+			//$("#btc-alert-above-val").val("");
+			//$("#btc-alert-above-val").attr("placeholder", "Alert Sent at " + $( "#btc-price-bitstamp" ).html());
 		}
 		// Below Alert
 		if ($("#btc-alert-below").prop("checked") &&
 		 	($("#btc-alert-below-val").val() !== "") &&
 		 	(parseInt($( "#btc-price-bitstamp" ).html()) < $("#btc-alert-below-val").val())) {
-			sendSlackMsg("BELOW\nPrice dropped below: " + $("#btc-alert-below-val").val() 
+			sendSlackMsg("DROP below: " + $("#btc-alert-below-val").val() 
 				+ "\nBitstamp: " + $( "#btc-price-bitstamp" ).html());
+			//$("#btc-alert-below").prop( "checked", false );
+			//$("#btc-alert-below-val").val("");
+			//$("#btc-alert-below-val").attr("placeholder", "Alert Sent at " + $( "#btc-price-bitstamp" ).html());
 		}
 		// Interval Alert
 		if ($("#btc-alert-interval").prop("checked")){
@@ -117,22 +123,17 @@ console.log('Coin Alert Page Ready.....');
 	});
 
 // Interval Alert
-	var alert_interval = 1;
-	var last_alert = 1;
+	var alert_interval = 100;
+	var last_alert = 9000;
 	$( "#btc-alert-interval-val" ).change(function() {
 		alert_interval = parseInt($("#btc-alert-interval-val").val());
 	});
 
-	function setLastAlert() {
-		alert_interval = parseInt($("#btc-alert-interval-val").val());
-		last_alert = (parseInt($("#btc-price-bitstamp").html() / alert_interval) * alert_interval);
-	}
-
 	function checkIntervalAlert() {
-		var new_alert_range = parseInt($("#btc-price-bitstamp").html() / alert_interval) * alert_interval;
+		var new_alert_range = (parseInt($("#btc-price-bitstamp").html()) -
+					parseInt($("#btc-price-bitstamp").html()) % alert_interval);
 		if (new_alert_range < last_alert) {
-			//console.log("drop: " + $("#btc-price-bitstamp").html() + " / " + last_alert);
-			var msg = "Alert: DROP\n" +
+			var msg = "DROP from " + last_alert + "'s\n" +
 						"Bitstamp:\t" + $( "#btc-price-bitstamp" ).html() ;
       			//+ "\nCoinbase:\t" + $( "#btc-price-coinbase" ).html()
       			//+ "\nNomics  :\t" + $( "#btc-price-nomics" ).html();
@@ -140,12 +141,9 @@ console.log('Coin Alert Page Ready.....');
 			$.post((custome_slack_webhook !== "" ? custome_slack_webhook !== "" : slack_url) + slack_key, slack_data).done(function( data ) {
 				last_alert = new_alert_range;
 				alert_interval = parseInt($("#btc-alert-interval-val").val());
-				//console.log("price : " + $( "#btc-price-bitstamp" ).html());
-				//console.log("last_alert drop to : " + last_alert);
 			});
 		} else if (new_alert_range > last_alert) {
-			//console.log("rise: " + $("#btc-price-bitstamp").html() + " / " + last_alert);
-			var msg = "Alert: RISE ^ ^ ^\n" +
+			var msg = "RISE from " + last_alert + "'s\n" +
 						"Bitstamp:\t" + $( "#btc-price-bitstamp" ).html() ;
       			//+ "\nCoinbase:\t" + $( "#btc-price-coinbase" ).html()
       			//+ "\nNomics  :\t" + $( "#btc-price-nomics" ).html();
@@ -153,13 +151,8 @@ console.log('Coin Alert Page Ready.....');
 			$.post((custome_slack_webhook !== "" ? custome_slack_webhook !== "" : slack_url) + slack_key, slack_data).done(function( data ) {
 				last_alert = new_alert_range;
 				alert_interval = parseInt($("#btc-alert-interval-val").val());
-				//console.log("price : " + $( "#btc-price-bitstamp" ).html());
-				//console.log("last_alert rise to : " + last_alert);
 			});
-		} 
-		/* else {
-			console.log("no alert: " + $("#btc-price-bitstamp").html() + "/" + last_alert );
-		} */
+		}
 	}
 
 	function sendSlackMsg(msg) {
