@@ -28,7 +28,7 @@ As I get bored of the Coronavirus pandemic quanrantine, I will make a webpage to
     ```mysql.server start```
   2. Start apache from terminal:<br/>
     ```sudo apachectl start```
-  3. Run clean server by navigating into the backend folder and and run: <br/>
+  3. Run clean server by navigating into the backend folder and run: <br/>
     ``` ./mvnv clean spring-boot:run ```
   4. Depending on where your project at, the url to the website should be similar to: <br/>
     ``` localhost/paths-to-project-folder/RestSpring/FronEnd/ ```
