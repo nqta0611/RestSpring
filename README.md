@@ -22,8 +22,8 @@ As I get bored of the Coronavirus pandemic quanrantine, I will make a webpage to
 
 
 ## To Run the Project:
-  */ Assuming LAMP Stack already installed on youe computer. See [tutorial of installing LAMP](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04) <br/>
-  */ Recommend using Firefox with CORS Add On to avoid CORS error since this is a localhost development project.
+  Assuming LAMP Stack already installed on your computer. See [tutorial of installing LAMP](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04) <br/>
+  Recommend using Firefox with CORS Add On to avoid CORS error since this is a localhost development project.
   1. Start mysql server from terminal: <br/>
     ```mysql.server start```
   2. Start apache from terminal:<br/>
@@ -36,6 +36,7 @@ As I get bored of the Coronavirus pandemic quanrantine, I will make a webpage to
 ## Resource:<br/>
 [Tutorial - Building REST services with Spring following](https://spring.io/guides/tutorials/rest/) <br/>
 [Tutorial - Spring with MySQL](https://spring.io/guides/gs/accessing-data-mysql/) <br/>
+[tutorial of installing LAMP](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04) <br/>
 [Tool - Add on to Disable CORS in Mozilla FireFox](https://addons.mozilla.org/en-US/firefox/addon/cors-everywhere/)<br/>
 [Tool - Cron job](https://medium.com/better-programming/https-medium-com-ratik96-scheduling-jobs-with-crontab-on-macos-add5a8b26c30) <br/>
 [API - Nomics Crypto data](http://docs.nomics.com)<br/>
