@@ -13,7 +13,7 @@ As I get bored of the Coronavirus pandemic quanrantine, I will make a webpage to
 - ...
 
 ## Project Framworks:
-  - Front End written in PHP, HTML, CSS using CodeIgnitor frameworks
+  - Front End written in PHP, Javascript, HTML, CSS using CodeIgnitor frameworks
   - Back End written in Java, MySQL using Spring Boot frameworks.
   
 ## Current FrontEnd snapshot
