@@ -1,5 +1,6 @@
 <div class="container" style="margin-bottom: 110px;">
 	
+	<!--
 	<div class="d-flex align-items-center justify-content-between mb-3 rounded"  style="background-color: #000000;">
 		<div class="p-2 d-flex align-items-center ml-1">
 			<img class="p-2 img-fluid" style="width:90px;" src="<?=base_url()?>/images/btc-halving.jpg">
@@ -12,6 +13,7 @@
 			<h4><span id="btc-havlving-time"></span></h4>
 		</div>
 	</div>
+	-->
 	<div class="d-flex align-items-center bg-light text-dark shadow p-3 mb-3 rounded">
 		<div class="p-2 flex-shrink-0">
 			<img class="img-fluid" style="width:70px;" src="https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/btc.svg">
@@ -23,12 +25,16 @@
 	  	<div class="p-2 flex-shrink-0">
 	  		<div class="font-italic text-success">Bitstamp</div>
 	  		<div class="font-italic text-info">Coinbase</div>
+	  		<!--
 	  		<div class="font-italic text-dark">Nomics</div>
+	  		-->
 	  	</div>
 		<div class="p-2 flex-shrink-0 text-monospace text-warning font-weight-bold">
 			<div id="btc-price-bitstamp"></div>
 			<div id="btc-price-coinbase"></div>
+			<!--
 			<div id="btc-price-nomics"></div>
+			-->
 	  	</div>
 	</div>
 
@@ -61,7 +67,7 @@
 			<tbody>
 				<tr>
 					<td>
-						<div id="btc-price">Send price once</div>
+						<div>Send price once</div>
 					</td>
 					<td>
 						<div id="btc-max-price"></div>
@@ -101,7 +107,7 @@
 
 				<tr>
 					<td>
-						<div id="btc-price">Send alert when price is above</div>
+						<div>Send alert when price is above</div>
 					</td>
 					<td>
 						<div>
@@ -139,7 +145,7 @@
 
 				<tr>
 					<td>
-						<div id="btc-price">Send alert when price hit the interval of</div>
+						<div>Send alert when price hit the interval of</div>
 					</td>
 					<td>
 						<div>
@@ -165,6 +171,45 @@
 						</div>
 					</td>
 				</tr>
+
+				<tr>
+					<td>
+						<div>Send alert when price hit high record (+ $2)</div>
+					</td>
+					<td>
+						<div>
+							<input id="btc-record-high" type="text" class="form-control" placeholder="High" disabled="true">
+						</div>
+					</td>
+					<td>
+						<div class="d-flex justify-content-center">
+							<label class="switch p-2">
+						  		<input id="btc-alert-record-high" type="checkbox">
+						  		<span class="slider round"></span>
+							</label>
+						</div>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<div>Send alert when price hit low record (- $2)</div>
+					</td>
+					<td>
+						<div>
+							<input id="btc-record-low" type="text" class="form-control" placeholder="Low" disabled="true">
+						</div>
+					</td>
+					<td>
+						<div class="d-flex justify-content-center">
+							<label class="switch p-2">
+						  		<input id="btc-alert-record-low" type="checkbox">
+						  		<span class="slider round"></span>
+							</label>
+						</div>
+					</td>
+				</tr>
+
 			</tbody>
 		</table>
 	</div>

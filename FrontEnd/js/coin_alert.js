@@ -1,8 +1,8 @@
 console.log('Coin Alert Page Ready.....');
 	var custome_slack_webhook = "";
 	updateBtc();
-	setInterval(updateBtc, 5000);
-	setInterval(updateCountdown, 1000);
+	setInterval(updateBtc, 4000);
+	// setInterval(updateCountdown, 1000);
 
 	function updateCountdown() {
 		var d = new Date();
@@ -19,7 +19,7 @@ console.log('Coin Alert Page Ready.....');
 	}
 
 	function updateBtc() {
-		updateBtcNomics();
+		//updateBtcNomics(); // Stop úing nomics since it's updating price slowly
 		updateBtcBitstamp();
 		updateBtcCoinbase();
 
@@ -50,6 +50,14 @@ console.log('Coin Alert Page Ready.....');
 		// Interval Alert
 		if ($("#btc-alert-interval").prop("checked")){
 			checkIntervalAlert();
+		}
+		// High Record
+		if ($("#btc-alert-record-high").prop("checked")){
+			checkHighRecord();
+		}
+		// Low Record
+		if ($("#btc-alert-record-low").prop("checked")){
+			checkLowRecord();
 		}
 	}
 
@@ -83,8 +91,8 @@ console.log('Coin Alert Page Ready.....');
 
 		console.log("sending msg");
       var msg = "BTC\nBitstamp:\t" + $( "#btc-price-bitstamp" ).html() 
-      			+ "\nCoinbase:\t" + $( "#btc-price-coinbase" ).html()
-      			+ "\nNomics  :\t" + $( "#btc-price-nomics" ).html();
+      			+ "\nCoinbase:\t" + $( "#btc-price-coinbase" ).html();
+      			//+ "\nNomics  :\t" + $( "#btc-price-nomics" ).html();
 		var slack_data = JSON.stringify({ "text" : msg });
 		$.post((custome_slack_webhook !== "" ? custome_slack_webhook !== "" : slack_url) + slack_key, slack_data).done(function( data ) {
 			console.log(data);
@@ -106,8 +114,8 @@ console.log('Coin Alert Page Ready.....');
 	});
 	function sendPeriodAlert() {
       var msg = period + "mins update\nBitstamp:\t" + $( "#btc-price-bitstamp" ).html() 
-      			+ "\nCoinbase:\t" + $( "#btc-price-coinbase" ).html()
-      			+ "\nNomics  :\t" + $( "#btc-price-nomics" ).html();
+      			+ "\nCoinbase:\t" + $( "#btc-price-coinbase" ).html();
+      			// + "\nNomics  :\t" + $( "#btc-price-nomics" ).html();
 		sendSlackMsg(msg);
 	}
 	$( "#btc-alert-period" ).change(function() {
@@ -158,7 +166,7 @@ console.log('Coin Alert Page Ready.....');
 	function sendSlackMsg(msg) {
 		var slack_data = JSON.stringify({ "text" : msg });
 		$.post((custome_slack_webhook !== "" ? custome_slack_webhook !== "" : slack_url) + slack_key, slack_data).done(function( data ) {
-			console.log(data);
+			//console.log(data);
       });
 	}
 
@@ -171,5 +179,27 @@ console.log('Coin Alert Page Ready.....');
 		custome_slack_webhook = $( "#btc-alert-slack-hook-input").val();
 	});
 	
+// High Record Alert
+	var alert_high_record = 1;
+	function checkHighRecord() {
+		var new_high_record = parseInt($("#btc-price-bitstamp").html());
+		if (new_high_record >= alert_high_record + 2) {
+			sendSlackMsg("RISE - High Record\nBitstamp:\t" + $( "#btc-price-bitstamp" ).html());
+			alert_high_record = new_high_record;
+			$("#btc-record-high").val(new_high_record);
+		}
+	}
+
+// Low Record Alert
+	var alert_low_record = 100000;
+	function checkLowRecord() {
+		var new_low_record = parseInt($("#btc-price-bitstamp").html());
+		if (new_low_record <= alert_low_record - 2) {
+			sendSlackMsg("DROP - Low Record\nBitstamp:\t" + $( "#btc-price-bitstamp" ).html());
+			alert_low_record = new_low_record;
+			$("#btc-record-low").val(new_low_record);
+		}
+	}
+
 
 	
