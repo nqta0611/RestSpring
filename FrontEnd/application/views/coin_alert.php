@@ -221,5 +221,5 @@
 	<script type="text/javascript"> var slack_key = "<?php echo $this->config->item('slack_key');?>"; </script>
 	<script type="text/javascript"> var coinbase_url = "<?php echo $this->config->item('coinbase_url');?>"; </script>
 	<script type="text/javascript"> var bitstamp_url = "<?php echo $this->config->item('bitstamp_url');?>"; </script>
-	<script type="text/javascript" src="js/coin_alert.js" ></script>
+	<script type="text/javascript" src="<?=base_url()?>js/coin_alert.js" ></script>
 </div>

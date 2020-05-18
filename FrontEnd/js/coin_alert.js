@@ -186,7 +186,8 @@ console.log('Coin Alert Page Ready.....');
 		if (new_high_record >= alert_high_record + 2) {
 			sendSlackMsg("RISE - High Record\nBitstamp:\t" + $( "#btc-price-bitstamp" ).html());
 			alert_high_record = new_high_record;
-			$("#btc-record-high").val(new_high_record);
+			var d = new Date();
+			$("#btc-record-high").val(new_high_record + "  " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds());
 		}
 	}
 
@@ -197,7 +198,8 @@ console.log('Coin Alert Page Ready.....');
 		if (new_low_record <= alert_low_record - 2) {
 			sendSlackMsg("DROP - Low Record\nBitstamp:\t" + $( "#btc-price-bitstamp" ).html());
 			alert_low_record = new_low_record;
-			$("#btc-record-low").val(new_low_record);
+			var d = new Date();
+			$("#btc-record-low").val(new_low_record + "  " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds());
 		}
 	}
 

@@ -2,7 +2,7 @@
 	<div class="row bg-light text-dark shadow p-3 mb-2 rounded">
 		<h3>Water drinking</h3>
 	</div>
-	<div class="row shadow p-3 mb-4 rounded" style="background-image: url(<?=base_url()?>/images/water-surface.jpg);  background-repeat: no-repeat; background-size: 100%">
+	<div class="row shadow p-3 mb-4 rounded" style="background-image: url(<?=base_url()?>images/water-surface.jpg);  background-repeat: no-repeat; background-size: 100%">
 		<div class="col-lg-4">
 			<ul class="nav nav-tabs" id="myTab" role="tablist">
 			  <li class="nav-item">
@@ -191,5 +191,5 @@
 
 
 	<script type="text/javascript"> var api_url = "<?php echo $this->config->item('api_url');?>"; </script>
-	<script type="text/javascript" src="js/drink.js" ></script>
+	<script type="text/javascript" src="<?=base_url()?>js/drink.js" ></script>
 </div>
