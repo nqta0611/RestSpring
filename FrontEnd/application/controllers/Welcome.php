@@ -22,6 +22,7 @@ class Welcome extends CI_Controller {
 	function __construct() {
       parent::__construct();
 
+      date_default_timezone_set('America/Los_Angeles');
       $this->load->helper('url');
       $url = base_url() . "storage/credentials.json";
       
