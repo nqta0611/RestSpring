@@ -1,3 +1,0 @@
-RewriteEngine on
-RewriteCond $1 !^(index\.php|css|js|images|storage|robots\.txt)
-RewriteRule ^(.*)$ /Work/RestSpring/FrontEnd/index.php/$1 [L]
