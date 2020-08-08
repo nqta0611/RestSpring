@@ -1,6 +1,8 @@
+
 # Rest - Spring Boot - CodeIgnitor
 (On going project)
 As I get bored of the Coronavirus pandemic quanrantine, I will make a webpage to Monitoring BITCOIN price and keep track of all my daily activites
+webpage: http://54.218.121.105/FrontEnd/index.php/coin
 
 ## Feature:
 1. Monitoring my daily water drinking. (done)
